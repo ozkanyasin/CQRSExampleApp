@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "fbe6988e-5294-4028-9850-42359bf01e4c": {
+      "ProjectGuid": "fbe6988e-5294-4028-9850-42359bf01e4c",
+      "DisplayName": "CQRSWebApp",
+      "ColorIndex": 0
+    },
+    "aca2df8f-0f79-40ce-b451-222160041857": {
+      "ProjectGuid": "aca2df8f-0f79-40ce-b451-222160041857",
+      "DisplayName": "CQRSWebApi",
+      "ColorIndex": 1
+    },
+    "0ff1c200-bc31-4dc9-a094-ba526a4b290c": {
+      "ProjectGuid": "0ff1c200-bc31-4dc9-a094-ba526a4b290c",
+      "DisplayName": "CQRS-DAL",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 3
+}
