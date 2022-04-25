@@ -25,11 +25,16 @@ namespace CQRS_DAL.Repository.Dapper
 
         public async ValueTask<Product> GetByIdAsync(Guid id)
         {   
-            Product result = new Product();
-            var query = $"SELECT * FROM Products WHERE Id = {id}";
+            var result = new Product();
+            var query = $"SELECT * FROM Products WHERE Id LIKE '%{id}%'";
             using (var connection = new MySqlConnection(_connectionString))
             {
-                result = (Product)await connection.QueryAsync<Product>(query);
+                var coming = await connection.QueryFirstOrDefaultAsync(query);
+                result.Quantity = coming.Quantity;
+                result.Price = coming.Price;
+                result.Id = id;
+                result.Name = coming.Name;
+                result.CreateTime = coming.CreateTime;
             }
             return result;
         }

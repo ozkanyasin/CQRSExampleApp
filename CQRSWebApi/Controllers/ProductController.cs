@@ -26,7 +26,7 @@ namespace CQRSWebApi.Controllers
             return Ok(allProducts);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("getById")]
         public async Task<IActionResult> Get([FromQuery] GetProductByIdQueryRequest requestModel)
         {
             GetProductByIdQueryResponse product = await _mediator.Send(requestModel);
