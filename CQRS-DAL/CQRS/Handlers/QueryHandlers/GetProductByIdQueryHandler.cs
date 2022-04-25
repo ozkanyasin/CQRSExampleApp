@@ -13,7 +13,6 @@ namespace CQRS_DAL.CQRS.Handlers.QueryHandlers
 {
     public class GetProductByIdQueryHandler : IRequestHandler<GetProductByIdQueryRequest, GetProductByIdQueryResponse>
     {
-        private readonly IDapperProductRepository _productRepository;
         private readonly IUnitOfWork _uow;
 
         public GetProductByIdQueryHandler(IUnitOfWork unitOfWork)
@@ -22,11 +21,18 @@ namespace CQRS_DAL.CQRS.Handlers.QueryHandlers
         }
         public async Task<GetProductByIdQueryResponse> Handle(GetProductByIdQueryRequest request, CancellationToken cancellationToken)
         {
-            var item = await _uow.DapperProductRepository.GetAllAsync();
-            var result = new List<GetAllProductQueryResponse>();
+            var item = await _uow.DapperProductRepository.GetByIdAsync(request.Id);
             
+            var result = new GetProductByIdQueryResponse()
+            {
+                Id = item.Id,
+                CreateTime = DateTime.Now,
+                Name = item.Name,
+                Price = item.Price,
+                Quantity = item.Quantity
+            };
 
-            return null;
+            return result;
         }
     }
 }
