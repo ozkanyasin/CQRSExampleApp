@@ -13,18 +13,12 @@ namespace CQRS_DAL.CQRS.Handlers.QueryHandlers
 {
     public class GetAllProductQueryHandler : IRequestHandler<GetAllProductQueryRequest, List<GetAllProductQueryResponse>>
     {
-        private readonly IDapperProductRepository _productRepository;
         private readonly IUnitOfWork _uow;
 
         public GetAllProductQueryHandler(IUnitOfWork unitOfWork)
         {
             _uow = unitOfWork;
         }
-
-        //public GetAllProductQueryHandler(IDapperProductRepository productRepository)
-        //{
-        //    _productRepository = productRepository;
-        //}
 
         public async Task<List<GetAllProductQueryResponse>> Handle(GetAllProductQueryRequest request, CancellationToken cancellationToken)
         {
